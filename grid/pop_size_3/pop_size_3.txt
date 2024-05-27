@@ -1,0 +1,126 @@
+Population size: 30 
+Tuned parameter: pop_size 
+range of values tested: [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30] 
+Number of trials: 200 
+
+Evolution function kwargs: 
+	 gens: 200 
+	 selection: [<function tournament_selection at 0x000001D16A097240>, <function fps at 0x000001D1684B42C0>] 
+	 selec_alg: 0 
+	 tour_size: 0.1 
+	 mutation: [<function polygon_mutation at 0x000001D16A097380>, <function pixel_mutation_random at 0x000001D16A097600>] 
+	 mut_prob: 0.04 
+	 mutation_alg_prob: 1 
+	 pixel_mutation_same_color: True 
+	 mut_vertices_range: [3, 5] 
+	 mut_poly_range: [1, 1] 
+	 mut_pixel_range: [3.125, 6.25] 
+	 crossover: [<function blend_crossover at 0x000001D16A868220>, <function cut_crossover at 0x000001D16A868400>, <function pixel_crossover at 0x000001D16A8684A0>] 
+	 xo_prob: 0.8 
+	 xo_alg_prob: [0.7, 0.25, 0.05] 
+	 mirror_prob: 0.05 
+	 elitism: True 
+	 fitness_sharing: False 
+	 fs_sigma: 1 
+	 early_stopping: 1500 
+
+Individual kwargs: 
+	 shape: (25, 25) 
+	 poly_range: [3, 5] 
+	 vertices_range: [3, 5] 
+
+Best pop_size found: 25 
+
+Significance testing: 
+
+Tests comparing 25 sample with 7 sample: 
+	 Levene test p-value: 4.423973265927367e-11 
+	 Average equality t-student test p-value: 4.466341746569828e-12 
+	 Average inequality t-student test p-value: 2.233170873284914e-12 
+Tests comparing 25 sample with 8 sample: 
+	 Levene test p-value: 1.0884670867155461e-11 
+	 Average equality t-student test p-value: 1.205672543933753e-10 
+	 Average inequality t-student test p-value: 6.028362719668766e-11 
+Tests comparing 25 sample with 9 sample: 
+	 Levene test p-value: 7.33130098927022e-07 
+	 Average equality t-student test p-value: 7.3080735626707066e-09 
+	 Average inequality t-student test p-value: 3.6540367813353533e-09 
+Tests comparing 25 sample with 10 sample: 
+	 Levene test p-value: 1.6905554672059375e-06 
+	 Average equality t-student test p-value: 3.7897427098051503e-06 
+	 Average inequality t-student test p-value: 1.8948713549025751e-06 
+Tests comparing 25 sample with 11 sample: 
+	 Levene test p-value: 0.00010655175490316922 
+	 Average equality t-student test p-value: 3.6328564951372856e-06 
+	 Average inequality t-student test p-value: 1.8164282475686428e-06 
+Tests comparing 25 sample with 12 sample: 
+	 Levene test p-value: 0.035919622423672505 
+	 Average equality t-student test p-value: 0.0003687259417540908 
+	 Average inequality t-student test p-value: 0.0001843629708770454 
+Tests comparing 25 sample with 13 sample: 
+	 Levene test p-value: 0.0004135644740222478 
+	 Average equality t-student test p-value: 0.002354516059005796 
+	 Average inequality t-student test p-value: 0.001177258029502898 
+Tests comparing 25 sample with 14 sample: 
+	 Levene test p-value: 0.10030091839660428 
+	 Average equality t-student test p-value: 0.005553631897455981 
+	 Average inequality t-student test p-value: 0.0027768159487279905 
+Tests comparing 25 sample with 15 sample: 
+	 Levene test p-value: 0.0004732617689098022 
+	 Average equality t-student test p-value: 0.002002103456993687 
+	 Average inequality t-student test p-value: 0.0010010517284968436 
+Tests comparing 25 sample with 16 sample: 
+	 Levene test p-value: 0.027148583277598677 
+	 Average equality t-student test p-value: 0.189058920272651 
+	 Average inequality t-student test p-value: 0.0945294601363255 
+Tests comparing 25 sample with 17 sample: 
+	 Levene test p-value: 0.020405837403868126 
+	 Average equality t-student test p-value: 0.007411869437152057 
+	 Average inequality t-student test p-value: 0.0037059347185760287 
+Tests comparing 25 sample with 18 sample: 
+	 Levene test p-value: 0.0077306130552466604 
+	 Average equality t-student test p-value: 0.014524010085896119 
+	 Average inequality t-student test p-value: 0.007262005042948059 
+Tests comparing 25 sample with 19 sample: 
+	 Levene test p-value: 0.2623898680572124 
+	 Average equality t-student test p-value: 0.5065890487362299 
+	 Average inequality t-student test p-value: 0.25329452436811495 
+Tests comparing 25 sample with 20 sample: 
+	 Levene test p-value: 0.21018432499704814 
+	 Average equality t-student test p-value: 0.0899819057738438 
+	 Average inequality t-student test p-value: 0.0449909528869219 
+Tests comparing 25 sample with 21 sample: 
+	 Levene test p-value: 0.010856848070461203 
+	 Average equality t-student test p-value: 0.05616036537681221 
+	 Average inequality t-student test p-value: 0.028080182688406105 
+Tests comparing 25 sample with 22 sample: 
+	 Levene test p-value: 0.09508494246287769 
+	 Average equality t-student test p-value: 0.10436750857839901 
+	 Average inequality t-student test p-value: 0.052183754289199503 
+Tests comparing 25 sample with 23 sample: 
+	 Levene test p-value: 0.14717025840035086 
+	 Average equality t-student test p-value: 0.00517968902546952 
+	 Average inequality t-student test p-value: 0.00258984451273476 
+Tests comparing 25 sample with 24 sample: 
+	 Levene test p-value: 0.16811248221103625 
+	 Average equality t-student test p-value: 0.19492483228828444 
+	 Average inequality t-student test p-value: 0.09746241614414222 
+Tests comparing 25 sample with 26 sample: 
+	 Levene test p-value: 0.07193915292263556 
+	 Average equality t-student test p-value: 0.37840919364605063 
+	 Average inequality t-student test p-value: 0.18920459682302532 
+Tests comparing 25 sample with 27 sample: 
+	 Levene test p-value: 0.37167594435293627 
+	 Average equality t-student test p-value: 0.22012587207641396 
+	 Average inequality t-student test p-value: 0.11006293603820698 
+Tests comparing 25 sample with 28 sample: 
+	 Levene test p-value: 0.19888691124726204 
+	 Average equality t-student test p-value: 0.04935939943668322 
+	 Average inequality t-student test p-value: 0.02467969971834161 
+Tests comparing 25 sample with 29 sample: 
+	 Levene test p-value: 0.7640416410823494 
+	 Average equality t-student test p-value: 0.16429107852873834 
+	 Average inequality t-student test p-value: 0.08214553926436917 
+Tests comparing 25 sample with 30 sample: 
+	 parameter 30 not normal distributed. 
+	 Wilcoxon Rank-Sum Test p-value: 0.5117304542070658 

@@ -1,2 +1,2 @@
 # CIFO-Project
-image recreation GA
+Image Recreation GA

@@ -1,0 +1,39 @@
+Population size: 9 
+Tuned parameter: selec_alg 
+range of values tested: [0, 1] 
+Number of trials: 500 
+
+Evolution function kwargs: 
+	 gens: 1000 
+	 selection: [<function tournament_selection at 0x000001E7E97E7240>, <function fps at 0x000001E7E7BEC2C0>] 
+	 selec_alg: 1 
+	 tour_size: 0.1 
+	 mutation: [<function polygon_mutation at 0x000001E7E97E7380>, <function pixel_mutation_random at 0x000001E7E97E7600>] 
+	 mut_prob: 0.04 
+	 mutation_alg_prob: 1 
+	 pixel_mutation_same_color: True 
+	 mut_vertices_range: [3, 5] 
+	 mut_poly_range: [1, 1] 
+	 mut_pixel_range: [3.125, 6.25] 
+	 crossover: [<function blend_crossover at 0x000001E7E9FE8220>, <function cut_crossover at 0x000001E7E9FE8400>, <function pixel_crossover at 0x000001E7E9FE84A0>] 
+	 xo_prob: 0.8 
+	 xo_alg_prob: [0.7, 0.25, 0.05] 
+	 mirror_prob: 0.05 
+	 elitism: True 
+	 fitness_sharing: False 
+	 fs_sigma: 1 
+	 early_stopping: 1500 
+
+Individual kwargs: 
+	 shape: (25, 25) 
+	 poly_range: [3, 5] 
+	 vertices_range: [3, 5] 
+
+Best selec_alg found: 1 
+
+Significance testing: 
+
+Tests comparing 1 sample with 0 sample: 
+	 Levene test p-value: 0.7810282984027512 
+	 Average equality t-student test p-value: 6.461061731348878e-06 
+	 Average inequality t-student test p-value: 3.230530865674439e-06 

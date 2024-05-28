@@ -1,0 +1,43 @@
+Population size: 100 
+Tuned parameter: pop_size 
+range of values tested: [10, 50, 100] 
+Number of trials: 100 
+
+Evolution function kwargs: 
+	 gens: 2000 
+	 selection: [<function tournament_selection at 0x000001F9D7D1B240>, <function fps at 0x000001F9D61202C0>] 
+	 selec_alg: 1 
+	 tour_size: 0.1 
+	 mutation: [<function polygon_mutation at 0x000001F9D7D1B380>, <function pixel_mutation_random at 0x000001F9D7D1B600>] 
+	 mut_prob: 0.04 
+	 mutation_alg_prob: 1 
+	 pixel_mutation_same_color: True 
+	 mut_vertices_range: [3, 5] 
+	 mut_poly_range: [1, 1] 
+	 mut_pixel_range: [3.125, 6.25] 
+	 crossover: [<function blend_crossover at 0x000001F9D8518220>, <function cut_crossover at 0x000001F9D8518400>, <function pixel_crossover at 0x000001F9D85184A0>] 
+	 xo_prob: 0.8 
+	 xo_alg_prob: [0.7, 0.25, 0.05] 
+	 mirror_prob: 0.05 
+	 elitism: True 
+	 fitness_sharing: False 
+	 fs_sigma: 1 
+	 early_stopping: 1500 
+
+Individual kwargs: 
+	 shape: (25, 25) 
+	 poly_range: [3, 5] 
+	 vertices_range: [3, 5] 
+
+Best pop_size found: 10 
+
+Significance testing: 
+
+Tests comparing 10 sample with 50 sample: 
+	 Levene test p-value: 0.0009126531443939635 
+	 Average equality t-student test p-value: 8.06503510573224e-05 
+	 Average inequality t-student test p-value: 4.03251755286612e-05 
+Tests comparing 10 sample with 100 sample: 
+	 Levene test p-value: 1.0674665313836134e-06 
+	 Average equality t-student test p-value: 1.1436101871325781e-11 
+	 Average inequality t-student test p-value: 5.7180509356628904e-12 

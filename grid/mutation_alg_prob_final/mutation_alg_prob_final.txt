@@ -1,0 +1,63 @@
+Population size: 10 
+Tuned parameter: mutation_alg_prob 
+range of values tested: [0.7  0.75 0.8  0.85 0.9  0.95 1.   1.05] 
+Number of trials: 100 
+
+Evolution function kwargs: 
+	 gens: 2000 
+	 selection: [<function tournament_selection at 0x000001308781B240>, <function fps at 0x0000013085C302C0>] 
+	 selec_alg: 0 
+	 tour_size: 0.2 
+	 mutation: [<function polygon_mutation at 0x000001308781B380>, <function pixel_mutation_random at 0x000001308781B600>] 
+	 mut_prob: 0.04 
+	 mutation_alg_prob: 1.0500000000000003 
+	 pixel_mutation_same_color: True 
+	 mut_vertices_range: [3, 5] 
+	 mut_poly_range: [1, 1] 
+	 mut_pixel_range: [3.125, 6.25] 
+	 crossover: [<function blend_crossover at 0x0000013088008220>, <function cut_crossover at 0x0000013088008400>, <function pixel_crossover at 0x00000130880084A0>] 
+	 xo_prob: 0.8 
+	 xo_alg_prob: [0.7, 0.25, 0.05] 
+	 mirror_prob: 0.05 
+	 elitism: True 
+	 fitness_sharing: False 
+	 fs_sigma: 1 
+	 early_stopping: 1500 
+
+Individual kwargs: 
+	 shape: (25, 25) 
+	 poly_range: [3, 5] 
+	 vertices_range: [3, 5] 
+
+Best mutation_alg_prob found: 1.0500000000000003 
+
+Significance testing: 
+
+Tests comparing 1.0500000000000003 sample with 0.7 sample: 
+	 Levene test p-value: 0.45303945231777454 
+	 Average equality t-student test p-value: 0.01150664571046541 
+	 Average inequality t-student test p-value: 0.005753322855232705 
+Tests comparing 1.0500000000000003 sample with 0.75 sample: 
+	 Levene test p-value: 0.9021959727396217 
+	 Average equality t-student test p-value: 1.4786856406210188e-05 
+	 Average inequality t-student test p-value: 7.393428203105094e-06 
+Tests comparing 1.0500000000000003 sample with 0.8 sample: 
+	 Levene test p-value: 0.4684182184374094 
+	 Average equality t-student test p-value: 0.011407843195757366 
+	 Average inequality t-student test p-value: 0.005703921597878683 
+Tests comparing 1.0500000000000003 sample with 0.8500000000000001 sample: 
+	 Levene test p-value: 0.7457558895052141 
+	 Average equality t-student test p-value: 0.2905257468034799 
+	 Average inequality t-student test p-value: 0.14526287340173996 
+Tests comparing 1.0500000000000003 sample with 0.9000000000000001 sample: 
+	 Levene test p-value: 0.20825331216762002 
+	 Average equality t-student test p-value: 0.1580999215169128 
+	 Average inequality t-student test p-value: 0.0790499607584564 
+Tests comparing 1.0500000000000003 sample with 0.9500000000000002 sample: 
+	 Levene test p-value: 0.7317805512691822 
+	 Average equality t-student test p-value: 0.6551814402358291 
+	 Average inequality t-student test p-value: 0.32759072011791457 
+Tests comparing 1.0500000000000003 sample with 1.0000000000000002 sample: 
+	 Levene test p-value: 0.8453621544691111 
+	 Average equality t-student test p-value: 0.11903300311097999 
+	 Average inequality t-student test p-value: 0.059516501555489994 

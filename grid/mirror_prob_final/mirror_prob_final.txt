@@ -1,0 +1,51 @@
+Population size: 10 
+Tuned parameter: mirror_prob 
+range of values tested: [0.05, 0.1, 0.15, 0.2, 0.25] 
+Number of trials: 100 
+
+Evolution function kwargs: 
+	 gens: 2000 
+	 selection: [<function tournament_selection at 0x0000019662F47240>, <function fps at 0x00000196613502C0>] 
+	 selec_alg: 0 
+	 tour_size: 0.2 
+	 mutation: [<function polygon_mutation at 0x0000019662F47380>, <function pixel_mutation_random at 0x0000019662F47600>] 
+	 mut_prob: 0.07 
+	 mutation_alg_prob: 0.9 
+	 pixel_mutation_same_color: True 
+	 mut_vertices_range: [3, 5] 
+	 mut_poly_range: [1, 1] 
+	 mut_pixel_range: [3.125, 6.25] 
+	 crossover: [<function blend_crossover at 0x0000019663748220>, <function cut_crossover at 0x0000019663748400>, <function pixel_crossover at 0x00000196637484A0>] 
+	 xo_prob: 0.8 
+	 xo_alg_prob: [0.25, 0.7, 0.05] 
+	 mirror_prob: 0.25 
+	 elitism: True 
+	 fitness_sharing: False 
+	 fs_sigma: 1 
+	 early_stopping: 1500 
+
+Individual kwargs: 
+	 shape: (25, 25) 
+	 poly_range: [3, 5] 
+	 vertices_range: [3, 5] 
+
+Best mirror_prob found: 0.1 
+
+Significance testing: 
+
+Tests comparing 0.1 sample with 0.05 sample: 
+	 Levene test p-value: 0.09240842668603046 
+	 Average equality t-student test p-value: 0.18866547235936004 
+	 Average inequality t-student test p-value: 0.09433273617968002 
+Tests comparing 0.1 sample with 0.15 sample: 
+	 Levene test p-value: 0.6666889321206773 
+	 Average equality t-student test p-value: 0.31022015706546446 
+	 Average inequality t-student test p-value: 0.15511007853273223 
+Tests comparing 0.1 sample with 0.2 sample: 
+	 Levene test p-value: 0.18275701627578553 
+	 Average equality t-student test p-value: 0.1418603625879736 
+	 Average inequality t-student test p-value: 0.0709301812939868 
+Tests comparing 0.1 sample with 0.25 sample: 
+	 Levene test p-value: 0.0003228980688523489 
+	 Average equality t-student test p-value: 0.0005081180588401067 
+	 Average inequality t-student test p-value: 0.00025405902942005336 

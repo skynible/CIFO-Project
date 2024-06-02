@@ -2,8 +2,8 @@ import os
 import ast
 import pandas as pd
 import numpy as np
-from PIL import Image
 import matplotlib.pyplot as plt
+import pickle
 
 
 # **************************************
@@ -26,7 +26,6 @@ def read_txt(filename):
 
 
 # loading all data
-# I'VE DELETE THE 'OLD' FOLDER (if you don't also this will retun an error)
 grid = {}
 for dirname in os.listdir('grid'):
     if os.path.isdir(f'grid/{dirname}'):
@@ -137,15 +136,15 @@ if __name__ == '__main__':
                     grid['xo_alg_prob_final']['best_individuals_sample'][grid['xo_alg_prob_final']['best_param']],
                     grid['xo_prob_final']['best_individuals_sample'][grid['xo_prob_final']['best_param']],
                     error_bar_step=500, title='Mean Best Fitness', figsize=(12, 6),
-                    labels=[f'Mirror Prob.: {grid['mirror_prob_final']['best_param_value']}',
-                            f'Mut. Prob.: {grid['mut_prob_final']['best_param_value']}',
+                    labels=[f"Mirror Prob.: {grid['mirror_prob_final']['best_param_value']}",
+                            f"Mut. Prob.: {grid['mut_prob_final']['best_param_value']}",
                             'Mut. Alg. Prob.: 0.9',
                             'Mut. Size: 25',
-                            f'Pop. Size: {grid['pop_size_final']['best_param_value']}',
-                            f'Selection Alg.: {grid['selec_alg_final']['best_param_value']}',
-                            f'Tournament Size: {grid['tour_size_final']['best_param_value']}',
-                            f'XO Alg. Prob.: {grid['xo_alg_prob_final']['best_param_value']}',
-                            f'XO Prob.: {grid['xo_prob_final']['best_param_value']}'])
+                            f"Pop. Size: {grid['pop_size_final']['best_param_value']}",
+                            f"Selection Alg.: {grid['selec_alg_final']['best_param_value']}",
+                            f"Tournament Size: {grid['tour_size_final']['best_param_value']}",
+                            f"XO Alg. Prob.: {grid['xo_alg_prob_final']['best_param_value']}",
+                            f"XO Prob.: {grid['xo_prob_final']['best_param_value']}"])
 
     # computational effort
     compare_effort(
@@ -153,3 +152,92 @@ if __name__ == '__main__':
         [grid['pop_size_final']['best_individuals_sample'][0], grid['pop_size_final']['best_individuals_sample'][1], grid['pop_size_final']['best_individuals_sample'][2]],
         metric='mean'
     )
+
+
+    searches = ['pop_size_final',
+                'tour_size_final',
+                'selec_alg_final',
+                'mutation_alg_prob_final',
+                'mut_prob_final',
+                'xo_alg_prob_final',
+                'mirror_prob_final',
+                'xo_prob_final',
+                'mutation_size_final']
+
+    best_avgs = []
+    best_sem = []
+    variance_avgs = []
+    variance_sem = []
+
+    # get history for each search
+    for search in searches:
+        compiled_history_dir = os.path.join('grid', f'{search}', f'{search}_compiled_history.pkl')
+        best_individuals_sample_dir = os.path.join('grid', f'{search}', f'{search}_best_individuals_sample.pkl')
+        variance_sample_dir = os.path.join('grid', f'{search}', f'{search}_variance_sample.pkl')
+        best_param_dir = os.path.join('grid', f'{search}', f'{search}_best_param.pkl')
+        param_range_dir = os.path.join('grid', f'{search}', f'{search}.txt')
+
+        with open(compiled_history_dir, 'rb') as file:
+            compiled_history = pickle.load(file)
+
+        with open(best_individuals_sample_dir, 'rb') as file:
+            best_individuals_sample = pickle.load(file)
+
+        with open(best_param_dir, 'rb') as file:
+            best_param = pickle.load(file)
+
+        # necessary patch due to different code versions
+        if search == 'pop_size_final':
+            variance_sample = compiled_history[best_param][:][3]
+        else:
+            with open(variance_sample_dir, 'rb') as file:
+                variance_sample = pickle.load(file)
+
+        if search == 'mutation_alg_prob_final':
+
+            best_sample_avg = np.mean(best_individuals_sample[2][-1])
+            best_sample_std = np.std(best_individuals_sample[2][-1])
+            variance_sample_avg = np.mean(variance_sample[2][-1])
+            variance_sample_std = np.std(variance_sample[2][-1])
+            best_avgs.append(best_sample_avg)
+            best_sem.append(best_sample_std / 10)
+            variance_avgs.append(variance_sample_avg) # we divide by 10 because we are calculation the standard error of the mean and we did 100 trials
+            variance_sem.append(variance_sample_std / 10)  # we divide by 10 because we are calculation the standard error of the mean and we did 100 trials
+
+        else:
+
+            best_sample_avg = np.mean(best_individuals_sample[best_param][-1])
+            best_sample_std = np.std(best_individuals_sample[best_param][-1])
+            variance_sample_avg = np.mean(variance_sample[best_param][-1])
+            variance_sample_std = np.std(variance_sample[best_param][-1])
+            best_avgs.append(best_sample_avg)
+            best_sem.append(best_sample_std / 10) # we divide by 10 because we are calculation the standard error of the mean and we did 100 trials
+            variance_avgs.append(variance_sample_avg)
+            variance_sem.append(variance_sample_std / 10) # we divide by 10 because we are calculation the standard error of the mean and we did 100 trials
+
+    searches=[search[:-6] for search in searches]
+
+    plt.figure(figsize=(12, 8))
+    plt.errorbar(searches, best_avgs, marker='o', linestyle='-', color='b', yerr = best_sem)
+    plt.xticks(searches, rotation = 25, fontsize = 12)
+    plt.yticks(fontsize = 12)
+    plt.minorticks_on()
+    plt.xlabel('Parameter Tuned', fontsize = 12)
+    plt.ylabel('Last gen fitness sample average', fontsize = 12)
+    plt.title('Fitness History of Tuning Process', fontsize = 12)
+    plt.grid(which="minor", linestyle=":", linewidth=0.75)
+    plt.grid()
+    plt.show()
+    plt.clf()
+
+    plt.figure(figsize=(12, 8))
+    plt.errorbar(searches, variance_avgs, marker='o', linestyle='-', color='b', yerr = variance_sem)
+    plt.xticks(searches, rotation = 25, fontsize = 12)
+    plt.yticks(fontsize = 12)
+    plt.minorticks_on()
+    plt.xlabel('Average Variance last gen', fontsize = 12)
+    plt.ylabel('Last gen variance sample average', fontsize = 12)
+    plt.title('Variance History of Tuning Process', fontsize = 12)
+    plt.grid(which="minor", linestyle=":", linewidth=0.75)
+    plt.grid()
+    plt.show()

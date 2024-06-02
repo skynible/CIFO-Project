@@ -11,6 +11,7 @@ from scipy import stats
 from selection_p import fps, tournament_selection
 from mutation_p import polygon_mutation, pixel_mutation_random
 from xo_p import blend_crossover, cut_crossover, pixel_crossover
+from metrics_p import delta_e
 
 import matplotlib.pyplot as plt
 from operator import attrgetter
@@ -19,29 +20,6 @@ from selection_p import fps
 from xo_p import blend_crossover
 from skimage.transform import resize
 
-################### BECAUSE OF FITNESS SHARING I ALSO DEFINE DELTA_E FUNCTION HERE #########################
-def delta_e(color1, color2):
-
-    """Calculates the delta-e distance between two colors.
-
-            Args:
-                color1: array of rgb values
-                color2: array of rgb values
-
-            Returns:
-                delta_e: float
-            """
-
-    diff_vec = color1 - color2
-    red_avg = (color1[0] + color2[0])/2
-
-    if red_avg<128:
-        delta_e = np.sqrt((2*(diff_vec[0]**2))+(4*(diff_vec[1]**2))+(3*(diff_vec[2]**2)))
-
-    else:
-        delta_e = np.sqrt((3*(diff_vec[0]**2))+(4*(diff_vec[1]**2))+(2*(diff_vec[2]**2)))
-
-    return delta_e
 #########################################################################################################
 ## we need to define the target in this document because of get_fitness function
 target = plt.imread('scream.jpg')

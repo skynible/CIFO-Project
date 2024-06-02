@@ -1,0 +1,47 @@
+Population size: 10 
+Tuned parameter: tour_size 
+range of values tested: [0.1, 0.2, 0.3, 0.4] 
+Number of trials: 100 
+
+Evolution function kwargs: 
+	 gens: 2000 
+	 selection: [<function tournament_selection at 0x00000287C5F1B240>, <function fps at 0x00000287C43242C0>] 
+	 selec_alg: 0 
+	 tour_size: 0.4 
+	 mutation: [<function polygon_mutation at 0x00000287C5F1B380>, <function pixel_mutation_random at 0x00000287C5F1B600>] 
+	 mut_prob: 0.04 
+	 mutation_alg_prob: 1 
+	 pixel_mutation_same_color: True 
+	 mut_vertices_range: [3, 5] 
+	 mut_poly_range: [1, 1] 
+	 mut_pixel_range: [3.125, 6.25] 
+	 crossover: [<function blend_crossover at 0x00000287C6718220>, <function cut_crossover at 0x00000287C6718400>, <function pixel_crossover at 0x00000287C67184A0>] 
+	 xo_prob: 0.8 
+	 xo_alg_prob: [0.7, 0.25, 0.05] 
+	 mirror_prob: 0.05 
+	 elitism: True 
+	 fitness_sharing: False 
+	 fs_sigma: 1 
+	 early_stopping: 1500 
+
+Individual kwargs: 
+	 shape: (25, 25) 
+	 poly_range: [3, 5] 
+	 vertices_range: [3, 5] 
+
+Best tour_size found: 0.2 
+
+Significance testing: 
+
+Tests comparing 0.2 sample with 0.1 sample: 
+	 Levene test p-value: 0.264808860466564 
+	 Average equality t-student test p-value: 1.2176953926752557e-14 
+	 Average inequality t-student test p-value: 6.0884769633762786e-15 
+Tests comparing 0.2 sample with 0.3 sample: 
+	 Levene test p-value: 0.02376905225197523 
+	 Average equality t-student test p-value: 0.005186302121825928 
+	 Average inequality t-student test p-value: 0.002593151060912964 
+Tests comparing 0.2 sample with 0.4 sample: 
+	 Levene test p-value: 0.27072981804775953 
+	 Average equality t-student test p-value: 1.04173437157944e-05 
+	 Average inequality t-student test p-value: 5.2086718578972e-06 
